@@ -27,12 +27,33 @@ class MarineLocationState extends State<MarineLocation> {
       icon: BitmapDescriptor.defaultMarker,
       position: LatLng(-8.816020, 13.231920));
 
+  static final CameraPosition _kLake = CameraPosition(
+      bearing: 192.8334901395799,
+      target: LatLng(-8.816020, 13.231920),
+      tilt: 59.440717697143555,
+      zoom: 19.151926040649414);
+
   @override
   Widget build(BuildContext context) {
     return new Scaffold(
+      appBar: AppBar(
+        title: Row(
+          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+          children: [
+            Text('marinelocation'.tr),
+            InkWell(
+              child: Icon(Icons.restore),
+              onTap: () {
+                _reset();
+              },
+            ),
+          ],
+        ),
+        backgroundColor: palleteBlue.withOpacity(0.7),
+      ),
       floatingActionButtonLocation: FloatingActionButtonLocation.centerFloat,
       body: GoogleMap(
-        mapType: MapType.normal,
+        mapType: MapType.terrain,
         markers: {_angolaMarker},
         initialCameraPosition: _angola,
         onMapCreated: (GoogleMapController controller) {
@@ -41,13 +62,18 @@ class MarineLocationState extends State<MarineLocation> {
       ),
       floatingActionButton: FloatingActionButton.extended(
         onPressed: _backtoAngola,
-        label: Text('backto'.tr + ' ' + 'Angola'),
+        label: Text('backto'.tr + ' ' + 'Luanda,Angola'),
         icon: Icon(Icons.directions_boat),
       ),
     );
   }
 
   Future<void> _backtoAngola() async {
+    final GoogleMapController controller = await _controller.future;
+    controller.animateCamera(CameraUpdate.newCameraPosition(_kLake));
+  }
+
+  Future<void> _reset() async {
     final GoogleMapController controller = await _controller.future;
     controller.animateCamera(CameraUpdate.newCameraPosition(_angola));
   }

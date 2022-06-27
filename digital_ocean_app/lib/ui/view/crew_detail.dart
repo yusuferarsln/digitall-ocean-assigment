@@ -33,12 +33,30 @@ class _CrewDetailPageState extends State<CrewDetailPage> {
                   children: [
                     Padding(
                       padding: const EdgeInsets.all(8.0),
-                      child: CircleAvatar(
-                        backgroundImage: NetworkImage(
-                          crewController.crewList[data].image.toString(),
+                      child: InkWell(
+                        onTap: () {
+                          buildImage(context, crewController, data,
+                              crewController.crewList[data].image.toString());
+                        },
+                        child: Stack(
+                          children: [
+                            CircleAvatar(
+                              backgroundImage: NetworkImage(
+                                crewController.crewList[data].image.toString(),
+                              ),
+                              maxRadius: 100,
+                              minRadius: 100,
+                            ),
+                            Positioned(
+                              child: Icon(
+                                Icons.zoom_in,
+                                size: 40,
+                              ),
+                              left: 20,
+                              top: 10,
+                            ),
+                          ],
                         ),
-                        maxRadius: 100,
-                        minRadius: 100,
                       ),
                     ),
                     Text(
@@ -83,6 +101,26 @@ class _CrewDetailPageState extends State<CrewDetailPage> {
                 width: double.maxFinite,
                 child: Expanded(
                   child: CertificateList(width, height),
+                )),
+          );
+        });
+  }
+
+  buildImage(
+    BuildContext context,
+    CrewController crewController,
+    var data,
+    String image,
+  ) {
+    showDialog(
+        barrierColor: palleteLightBlue.withOpacity(0.6),
+        context: context,
+        builder: (builder) {
+          return AlertDialog(
+            content: Container(
+                width: double.maxFinite,
+                child: Expanded(
+                  child: Image.network(image),
                 )),
           );
         });

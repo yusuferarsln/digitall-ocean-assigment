@@ -120,7 +120,7 @@ class CrewController extends GetxController {
       certificateDates: ['10.03.2010']).obs();
   CrewModel cMember11 = new CrewModel(
       firstName: "Batuhan",
-      lastName: "Taş",
+      lastName: "Taşdemir",
       Nationality: "TR",
       jobTitle: 'Worker',
       image:
@@ -131,17 +131,19 @@ class CrewController extends GetxController {
   List<CrewModel> crewList = [];
 
   buildList() {
-    crewList.add(cMember1);
-    crewList.add(cMember2);
-    crewList.add(cMember3);
-    crewList.add(cMember4);
-    crewList.add(cMember5);
-    crewList.add(cMember6);
-    crewList.add(cMember7);
-    crewList.add(cMember8);
-    crewList.add(cMember9);
-    crewList.add(cMember10);
-    crewList.add(cMember11);
+    if (crewList.isEmpty) {
+      crewList.add(cMember1);
+      crewList.add(cMember2);
+      crewList.add(cMember3);
+      crewList.add(cMember4);
+      crewList.add(cMember5);
+      crewList.add(cMember6);
+      crewList.add(cMember7);
+      crewList.add(cMember8);
+      crewList.add(cMember9);
+      crewList.add(cMember10);
+      crewList.add(cMember11);
+    } else {}
 
     update();
   }

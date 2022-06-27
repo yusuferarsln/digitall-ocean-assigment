@@ -22,7 +22,10 @@ class _CrewPageState extends State<CrewPage> {
   @override
   void initState() {
     // TODO: implement initState
+    void doNothing() {}
+
     crewController.buildList();
+
     super.initState();
   }
 

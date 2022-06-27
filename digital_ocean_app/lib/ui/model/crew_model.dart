@@ -4,6 +4,7 @@ class CrewModel {
   String? Nationality;
   String? jobTitle;
   String? image;
+  int? id;
 
   List<String>? certificateNames;
   List<String>? certificateDates;
@@ -15,5 +16,6 @@ class CrewModel {
       this.lastName,
       this.jobTitle,
       this.Nationality,
-      this.image});
+      this.image,
+      this.id});
 }
