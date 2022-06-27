@@ -1,6 +1,6 @@
 import 'package:digital_ocean_app/ui/view/home.dart';
-import 'package:digital_ocean_app/localization/drawer_widget.dart';
-import 'package:digital_ocean_app/localization/languageController.dart';
+import 'package:digital_ocean_app/ui/widgets/drawer_widget.dart';
+import 'package:digital_ocean_app/localization/controller/languageController.dart';
 import 'package:digital_ocean_app/localization/localization.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';

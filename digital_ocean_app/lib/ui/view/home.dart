@@ -18,6 +18,7 @@ class _HomePageState extends State<HomePage> {
   @override
   void initState() {
     // TODO: implement initState
+    crewController.buildList();
     super.initState();
   }
 
@@ -56,14 +57,16 @@ class _HomePageState extends State<HomePage> {
                   child: ListTile(
                     leading: CircleAvatar(
                       backgroundImage: NetworkImage(
-                          "https://st3.depositphotos.com/6672868/13701/v/600/depositphotos_137014128-stock-illustration-user-profile-icon.jpg"),
-                      minRadius: 100,
-                      maxRadius: 100,
+                          crewController.crewList[index].image.toString()),
+                      minRadius: 40,
+                      maxRadius: 40,
                     ),
-                    title: Text(crewController.firstName[index]),
-                    subtitle: Text(crewController.lastName[index]),
-                    trailing:
-                        IconButton(icon: Icon(Icons.delete), onPressed: () {}),
+                    title: Text(
+                        "${crewController.crewList[index].firstName.toString()} ${crewController.crewList[index].lastName.toString()}"),
+                    subtitle: Text(
+                        crewController.crewList[index].jobTitle.toString()),
+                    trailing: Text(
+                        crewController.crewList[index].Nationality.toString()),
                   )),
             );
           });
@@ -73,6 +76,6 @@ class _HomePageState extends State<HomePage> {
             height: 15,
           );
         },
-        itemCount: crewController.firstName.length);
+        itemCount: crewController.crewList.length);
   }
 }

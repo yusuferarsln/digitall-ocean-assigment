@@ -1,4 +1,4 @@
-import 'package:digital_ocean_app/localization/languageController.dart';
+import 'package:digital_ocean_app/localization/controller/languageController.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
