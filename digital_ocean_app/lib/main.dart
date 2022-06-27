@@ -1,3 +1,4 @@
+import 'package:digital_ocean_app/ui/pallette/colorpallete.dart';
 import 'package:digital_ocean_app/ui/view/home.dart';
 import 'package:digital_ocean_app/ui/widgets/drawer_widget.dart';
 import 'package:digital_ocean_app/localization/controller/languageController.dart';
@@ -18,8 +19,10 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+        backgroundColor: palleteLightBlue,
         drawer: drawerWidget(context),
         appBar: AppBar(
+          backgroundColor: palleteLightBlue,
           title: Text('Crew'.tr),
         ),
         body: HomePage());

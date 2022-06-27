@@ -1,5 +1,6 @@
 import 'dart:async';
 
+import 'package:digital_ocean_app/ui/pallette/colorpallete.dart';
 import 'package:flutter/material.dart';
 import 'package:google_maps_flutter/google_maps_flutter.dart';
 
@@ -18,15 +19,19 @@ class MarineLocationState extends State<MarineLocation> {
 
   static final Marker _angolaMarker = Marker(
       markerId: MarkerId('_angolaMarker'),
-      infoWindow: InfoWindow(title: 'Luanda,Angola'),
-      icon: BitmapDescriptor.defaultMarkerWithHue(20),
+      infoWindow: InfoWindow(
+        title: 'Luanda,Angola',
+      ),
+      visible: true,
+      icon: BitmapDescriptor.defaultMarker,
       position: LatLng(-8.816020, 13.231920));
 
   @override
   Widget build(BuildContext context) {
     return new Scaffold(
       floatingActionButtonLocation: FloatingActionButtonLocation.centerFloat,
-      appBar: AppBar(title: Text('Marine Location')),
+      appBar: AppBar(
+          backgroundColor: palleteLightBlue, title: Text('Marine Location')),
       body: GoogleMap(
         mapType: MapType.normal,
         markers: {_angolaMarker},

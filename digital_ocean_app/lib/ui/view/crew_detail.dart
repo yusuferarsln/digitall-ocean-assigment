@@ -1,4 +1,5 @@
 import 'package:digital_ocean_app/ui/controller/crew_controller.dart';
+import 'package:digital_ocean_app/ui/pallette/colorpallete.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:grock/grock.dart';
@@ -18,7 +19,9 @@ class _CrewDetailPageState extends State<CrewDetailPage> {
     double width = MediaQuery.of(context).size.width;
     double height = MediaQuery.of(context).size.height;
     return Scaffold(
+      backgroundColor: palleteLightBlue,
       appBar: AppBar(
+          backgroundColor: palleteLightBlue,
           title: Text(
               'Employee ${crewController.crewList[data].firstName} ${crewController.crewList[data].lastName}')),
       body: Center(
@@ -26,38 +29,42 @@ class _CrewDetailPageState extends State<CrewDetailPage> {
           height: height * 0.9,
           width: width * 0.9,
           child: Card(
+              color: palleteSoft,
               child: Column(
-            children: [
-              Padding(
-                padding: const EdgeInsets.all(8.0),
-                child: CircleAvatar(
-                  backgroundImage: NetworkImage(
-                    crewController.crewList[data].image.toString(),
+                children: [
+                  Padding(
+                    padding: const EdgeInsets.all(8.0),
+                    child: CircleAvatar(
+                      backgroundImage: NetworkImage(
+                        crewController.crewList[data].image.toString(),
+                      ),
+                      maxRadius: 100,
+                      minRadius: 100,
+                    ),
                   ),
-                  maxRadius: 100,
-                  minRadius: 100,
-                ),
-              ),
-              Text(
-                '${crewController.crewList[data].firstName} ${crewController.crewList[data].lastName}',
-                style: TextStyle(fontSize: 30),
-              ),
-              Text(
-                crewController.crewList[data].jobTitle.toString(),
-                style: TextStyle(fontSize: 20, fontWeight: FontWeight.w300),
-              ),
-              Padding(
-                padding: const EdgeInsets.all(8.0),
-                child: CertificateList(width, height),
-              ),
-              ElevatedButton(
-                  onPressed: () {
-                    buildLanguageDialog(
-                        context, crewController, data, width, height);
-                  },
-                  child: Text('Edit Employee'))
-            ],
-          )),
+                  Text(
+                    '${crewController.crewList[data].firstName} ${crewController.crewList[data].lastName}',
+                    style: TextStyle(fontSize: 30),
+                  ),
+                  Text(
+                    crewController.crewList[data].jobTitle.toString(),
+                    style: TextStyle(fontSize: 20, fontWeight: FontWeight.w300),
+                  ),
+                  Padding(
+                    padding: const EdgeInsets.all(8.0),
+                    child: CertificateList(width, height),
+                  ),
+                  ElevatedButton(
+                      style: ButtonStyle(
+                          backgroundColor: MaterialStateProperty.all(
+                              palleteBlue.withOpacity(0.4))),
+                      onPressed: () {
+                        buildLanguageDialog(
+                            context, crewController, data, width, height);
+                      },
+                      child: Text('Edit Employee'))
+                ],
+              )),
         ),
       ),
     );
@@ -66,6 +73,7 @@ class _CrewDetailPageState extends State<CrewDetailPage> {
   buildLanguageDialog(BuildContext context, CrewController crewController,
       var data, double width, double height) {
     showDialog(
+        barrierColor: palleteLightBlue.withOpacity(0.6),
         context: context,
         builder: (builder) {
           return AlertDialog(

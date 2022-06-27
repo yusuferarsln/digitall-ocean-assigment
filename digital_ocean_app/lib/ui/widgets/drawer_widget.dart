@@ -1,4 +1,7 @@
 import 'package:digital_ocean_app/localization/controller/languageController.dart';
+import 'package:digital_ocean_app/ui/marine_location.dart';
+import 'package:digital_ocean_app/ui/pallette/colorpallete.dart';
+import 'package:digital_ocean_app/ui/view/home.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
@@ -10,7 +13,7 @@ Widget drawerWidget(BuildContext context) => Drawer(
         children: [
           DrawerHeader(
             decoration: BoxDecoration(
-              color: Colors.red,
+              color: palleteLightBlue,
             ),
             child: Center(
               child: Text(
@@ -23,27 +26,49 @@ Widget drawerWidget(BuildContext context) => Drawer(
             ),
           ),
           ListTile(
-            title: Text('Contracts'.tr),
+            title: Text(
+              'Contracts'.tr,
+              style: TextStyle(fontSize: 22, fontWeight: FontWeight.w300),
+            ),
             onTap: () {},
           ),
           ListTile(
-            title: Text('CRM'.tr),
+            title: Text(
+              'CRM'.tr,
+              style: TextStyle(fontSize: 22, fontWeight: FontWeight.w300),
+            ),
             onTap: () {},
           ),
           ListTile(
-            title: Text('Vessel'.tr),
+            title: Text(
+              'Vessel'.tr,
+              style: TextStyle(fontSize: 22, fontWeight: FontWeight.w300),
+            ),
             onTap: () {},
           ),
           ListTile(
-            title: Text('Crew'.tr),
-            onTap: () {},
+            title: Text(
+              'Crew'.tr,
+              style: TextStyle(fontSize: 22, fontWeight: FontWeight.w300),
+            ),
+            onTap: () {
+              Navigator.pop(context);
+            },
           ),
           ListTile(
-            title: Text('Marine'.tr),
-            onTap: () {},
+            title: Text(
+              'Marine'.tr,
+              style: TextStyle(fontSize: 22, fontWeight: FontWeight.w300),
+            ),
+            onTap: () {
+              Get.to(MarineLocation());
+            },
           ),
           ListTile(
-            title: Text('changelang'.tr),
+            title: Text(
+              'Settings'.tr,
+              style: TextStyle(fontSize: 22, fontWeight: FontWeight.w500),
+            ),
             onTap: () {
               buildLanguageDialog(context);
             },

@@ -1,6 +1,7 @@
 import 'package:digital_ocean_app/ui/controller/controller.dart';
 import 'package:digital_ocean_app/ui/controller/crew_controller.dart';
 import 'package:digital_ocean_app/ui/marine_location.dart';
+import 'package:digital_ocean_app/ui/pallette/colorpallete.dart';
 import 'package:digital_ocean_app/ui/view/crew_detail.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
@@ -39,11 +40,6 @@ class _HomePageState extends State<HomePage> {
               ],
             ),
           ),
-          ElevatedButton(
-              onPressed: () {
-                Get.to(MarineLocation());
-              },
-              child: Text('Marine Location')),
         ],
       ),
     );
@@ -62,6 +58,7 @@ class _HomePageState extends State<HomePage> {
               child: Container(
                 height: height * 0.1,
                 width: width * 0.3,
+                color: Colors.transparent,
                 child: Card(
                     shape: RoundedRectangleBorder(borderRadius: 15.allBR),
                     child: crewController.crewList != null
@@ -73,11 +70,11 @@ class _HomePageState extends State<HomePage> {
                               minRadius: 40,
                               maxRadius: 40,
                             ),
+                            tileColor: Colors.transparent,
                             title: Text(
-                                "${crewController.crewList[index].firstName.toString()} ${crewController.crewList[index].lastName.toString()}"),
-                            subtitle: Text(crewController
-                                .crewList[index].jobTitle
-                                .toString()),
+                                "Name: ${crewController.crewList[index].firstName.toString()} ${crewController.crewList[index].lastName.toString()}"),
+                            subtitle: Text(
+                                "Job Title : ${crewController.crewList[index].jobTitle}"),
                             trailing: Text(crewController
                                 .crewList[index].Nationality
                                 .toString()),
