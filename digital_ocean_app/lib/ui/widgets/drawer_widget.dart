@@ -14,7 +14,7 @@ Widget drawerWidget(BuildContext context) => Drawer(
             ),
             child: Center(
               child: Text(
-                'GStalker',
+                'DigitALL Ocean',
                 style: TextStyle(
                   fontSize: 30,
                   color: Colors.white,
@@ -23,22 +23,30 @@ Widget drawerWidget(BuildContext context) => Drawer(
             ),
           ),
           ListTile(
+            title: Text('Contracts'.tr),
+            onTap: () {},
+          ),
+          ListTile(
+            title: Text('CRM'.tr),
+            onTap: () {},
+          ),
+          ListTile(
+            title: Text('Vessel'.tr),
+            onTap: () {},
+          ),
+          ListTile(
+            title: Text('Crew'.tr),
+            onTap: () {},
+          ),
+          ListTile(
+            title: Text('Marine'.tr),
+            onTap: () {},
+          ),
+          ListTile(
             title: Text('changelang'.tr),
             onTap: () {
               buildLanguageDialog(context);
             },
-          ),
-          ListTile(
-            title: Text('privacy'.tr),
-            onTap: () {},
-          ),
-          ListTile(
-            title: Text('Premium Ol'.tr),
-            onTap: () {},
-          ),
-          ListTile(
-            title: Text('logout'.tr),
-            onTap: () {},
           ),
         ],
       ),
