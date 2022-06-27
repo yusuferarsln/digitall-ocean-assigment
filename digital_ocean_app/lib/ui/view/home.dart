@@ -45,50 +45,55 @@ class _HomePageState extends State<HomePage> {
     );
   }
 
-  ListView SavedList(Controller controller, double width, double height,
+  Expanded SavedList(Controller controller, double width, double height,
       CrewController crewController) {
-    return ListView.separated(
-        shrinkWrap: true,
-        itemBuilder: (BuildContext context, int index) {
-          return GetBuilder<CrewController>(builder: (crewController) {
-            return InkWell(
-              onTap: () {
-                Get.to(CrewDetailPage(), arguments: index);
-              },
-              child: Container(
-                height: height * 0.1,
-                width: width * 0.3,
-                color: Colors.transparent,
-                child: Card(
-                    shape: RoundedRectangleBorder(borderRadius: 15.allBR),
-                    child: crewController.crewList != null
-                        ? ListTile(
-                            leading: CircleAvatar(
-                              backgroundImage: NetworkImage(crewController
-                                  .crewList[index].image
-                                  .toString()),
-                              minRadius: 40,
-                              maxRadius: 40,
-                            ),
-                            tileColor: Colors.transparent,
-                            title: Text(
-                                "Name: ${crewController.crewList[index].firstName.toString()} ${crewController.crewList[index].lastName.toString()}"),
-                            subtitle: Text(
-                                "Job Title : ${crewController.crewList[index].jobTitle}"),
-                            trailing: Text(crewController
-                                .crewList[index].Nationality
-                                .toString()),
-                          )
-                        : CircularProgressIndicator()),
-              ),
-            );
-          });
-        },
-        separatorBuilder: (BuildContext context, int index) {
-          return const SizedBox(
-            height: 15,
-          );
-        },
-        itemCount: crewController.crewList.length);
+    return Expanded(
+      child: SingleChildScrollView(
+        child: ListView.separated(
+            physics: NeverScrollableScrollPhysics(),
+            shrinkWrap: true,
+            itemBuilder: (BuildContext context, int index) {
+              return GetBuilder<CrewController>(builder: (crewController) {
+                return InkWell(
+                  onTap: () {
+                    Get.to(CrewDetailPage(), arguments: index);
+                  },
+                  child: Container(
+                    height: height * 0.1,
+                    width: width * 0.3,
+                    color: Colors.transparent,
+                    child: Card(
+                        shape: RoundedRectangleBorder(borderRadius: 15.allBR),
+                        child: crewController.crewList != null
+                            ? ListTile(
+                                leading: CircleAvatar(
+                                  backgroundImage: NetworkImage(crewController
+                                      .crewList[index].image
+                                      .toString()),
+                                  minRadius: 40,
+                                  maxRadius: 40,
+                                ),
+                                tileColor: Colors.transparent,
+                                title: Text(
+                                    "Name: ${crewController.crewList[index].firstName.toString()} ${crewController.crewList[index].lastName.toString()}"),
+                                subtitle: Text(
+                                    "Job Title : ${crewController.crewList[index].jobTitle}"),
+                                trailing: Text(crewController
+                                    .crewList[index].Nationality
+                                    .toString()),
+                              )
+                            : CircularProgressIndicator()),
+                  ),
+                );
+              });
+            },
+            separatorBuilder: (BuildContext context, int index) {
+              return const SizedBox(
+                height: 15,
+              );
+            },
+            itemCount: crewController.crewList.length),
+      ),
+    );
   }
 }

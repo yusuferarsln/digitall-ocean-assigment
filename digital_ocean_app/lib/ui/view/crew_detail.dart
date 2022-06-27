@@ -50,10 +50,6 @@ class _CrewDetailPageState extends State<CrewDetailPage> {
                     crewController.crewList[data].jobTitle.toString(),
                     style: TextStyle(fontSize: 20, fontWeight: FontWeight.w300),
                   ),
-                  Padding(
-                    padding: const EdgeInsets.all(8.0),
-                    child: CertificateList(width, height),
-                  ),
                   ElevatedButton(
                       style: ButtonStyle(
                           backgroundColor: MaterialStateProperty.all(
@@ -62,7 +58,15 @@ class _CrewDetailPageState extends State<CrewDetailPage> {
                         buildLanguageDialog(
                             context, crewController, data, width, height);
                       },
-                      child: Text('Edit Employee'))
+                      child: Text('Edit Employee')),
+                  Expanded(
+                    child: SingleChildScrollView(
+                      child: Padding(
+                        padding: const EdgeInsets.all(8.0),
+                        child: CertificateList(width, height),
+                      ),
+                    ),
+                  ),
                 ],
               )),
         ),
@@ -79,7 +83,10 @@ class _CrewDetailPageState extends State<CrewDetailPage> {
           return AlertDialog(
             title: Text('Certificates'),
             content: Container(
-                width: double.maxFinite, child: CertificateList(width, height)),
+                width: double.maxFinite,
+                child: Expanded(
+                  child: CertificateList(width, height),
+                )),
           );
         });
   }
@@ -90,6 +97,7 @@ class _CrewDetailPageState extends State<CrewDetailPage> {
   ) {
     return ListView.separated(
         shrinkWrap: true,
+        physics: NeverScrollableScrollPhysics(),
         itemBuilder: (BuildContext context, int index) {
           return GetBuilder<CrewController>(builder: (crewController) {
             return Container(
@@ -102,8 +110,7 @@ class _CrewDetailPageState extends State<CrewDetailPage> {
                         crewController.crewList[data].certificateNames![index]),
                     subtitle: Text(
                         crewController.crewList[data].certificateDates![index]),
-                    trailing: Text(
-                        crewController.crewList[index].Nationality.toString()),
+                    trailing: Text((index + 1).toString()),
                   )),
             );
           });
