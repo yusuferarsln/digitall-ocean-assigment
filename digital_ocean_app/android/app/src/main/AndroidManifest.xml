@@ -4,6 +4,8 @@
         android:label="digital_ocean_app"
         android:name="${applicationName}"
         android:icon="@mipmap/ic_launcher">
+        <meta-data android:name="com.google.android.geo.API_KEY"
+               android:value="AIzaSyBgMGfvhbQ3gn5Ao0cL576mSJX5_60kdbI"/>
         <activity
             android:name=".MainActivity"
             android:exported="true"

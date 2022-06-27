@@ -37,6 +37,7 @@ dependencies:
   get: ^4.6.5
   shared_preferences: ^2.0.15
   grock: ^0.0.6+2
+  google_maps_flutter: ^2.1.8
 
 dev_dependencies:
   flutter_test:

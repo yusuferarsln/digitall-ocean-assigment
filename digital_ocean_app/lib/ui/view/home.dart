@@ -1,5 +1,6 @@
 import 'package:digital_ocean_app/ui/controller/controller.dart';
 import 'package:digital_ocean_app/ui/controller/crew_controller.dart';
+import 'package:digital_ocean_app/ui/marine_location.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:grock/grock.dart';
@@ -34,10 +35,14 @@ class _HomePageState extends State<HomePage> {
               controller: controller.pageController,
               children: [
                 SavedList(controller, width, height, crewController),
-                SavedList(controller, width, height, crewController)
               ],
             ),
           ),
+          ElevatedButton(
+              onPressed: () {
+                Get.to(MarineLocation());
+              },
+              child: Text('Marine Location')),
         ],
       ),
     );
@@ -54,20 +59,24 @@ class _HomePageState extends State<HomePage> {
               width: width * 0.3,
               child: Card(
                   shape: RoundedRectangleBorder(borderRadius: 15.allBR),
-                  child: ListTile(
-                    leading: CircleAvatar(
-                      backgroundImage: NetworkImage(
-                          crewController.crewList[index].image.toString()),
-                      minRadius: 40,
-                      maxRadius: 40,
-                    ),
-                    title: Text(
-                        "${crewController.crewList[index].firstName.toString()} ${crewController.crewList[index].lastName.toString()}"),
-                    subtitle: Text(
-                        crewController.crewList[index].jobTitle.toString()),
-                    trailing: Text(
-                        crewController.crewList[index].Nationality.toString()),
-                  )),
+                  child: crewController.crewList != null
+                      ? ListTile(
+                          leading: CircleAvatar(
+                            backgroundImage: NetworkImage(crewController
+                                .crewList[index].image
+                                .toString()),
+                            minRadius: 40,
+                            maxRadius: 40,
+                          ),
+                          title: Text(
+                              "${crewController.crewList[index].firstName.toString()} ${crewController.crewList[index].lastName.toString()}"),
+                          subtitle: Text(crewController.crewList[index].jobTitle
+                              .toString()),
+                          trailing: Text(crewController
+                              .crewList[index].Nationality
+                              .toString()),
+                        )
+                      : CircularProgressIndicator()),
             );
           });
         },
