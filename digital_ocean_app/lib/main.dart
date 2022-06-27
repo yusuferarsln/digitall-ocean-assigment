@@ -20,7 +20,7 @@ class MyApp extends StatelessWidget {
     return Scaffold(
         drawer: drawerWidget(context),
         appBar: AppBar(
-          title: Text('hello'.tr),
+          title: Text('Crew'.tr),
         ),
         body: HomePage());
   }

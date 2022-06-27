@@ -25,6 +25,7 @@ class MarineLocationState extends State<MarineLocation> {
   @override
   Widget build(BuildContext context) {
     return new Scaffold(
+      floatingActionButtonLocation: FloatingActionButtonLocation.centerFloat,
       appBar: AppBar(title: Text('Marine Location')),
       body: GoogleMap(
         mapType: MapType.normal,

@@ -10,7 +10,9 @@ class CrewController extends GetxController {
       Nationality: "TR",
       jobTitle: "Senior",
       image:
-          "https://www.pngitem.com/pimgs/m/4-42408_vector-art-design-men-fashion-vector-art-illustration.png");
+          "https://www.pngitem.com/pimgs/m/4-42408_vector-art-design-men-fashion-vector-art-illustration.png",
+      certificateNames: ['sa', 'sa', 'ba'],
+      certificateDates: ['da', 'ca', 'sa']);
   CrewModel cMember2 = new CrewModel(
       firstName: "Serlan",
       lastName: "er",

@@ -5,10 +5,12 @@ class CrewModel {
   String? jobTitle;
   String? image;
 
-  String? certificates;
+  List<String>? certificateNames;
+  List<String>? certificateDates;
 
   CrewModel(
-      {this.certificates,
+      {this.certificateDates,
+      this.certificateNames,
       this.firstName,
       this.lastName,
       this.jobTitle,
