@@ -8,7 +8,7 @@ class CrewController extends GetxController {
       firstName: "Ellis",
       lastName: "Peralta",
       Nationality: "USA",
-      jobTitle: "Head of Team",
+      jobTitle: "Captain",
       image:
           "https://www.pngitem.com/pimgs/m/4-42408_vector-art-design-men-fashion-vector-art-illustration.png",
       certificateNames: ['Certificate 1', 'Certificate 2', 'Certificate 3'],
@@ -17,7 +17,7 @@ class CrewController extends GetxController {
       firstName: "Marley",
       lastName: "Trevino",
       Nationality: "USA",
-      jobTitle: "Captain",
+      jobTitle: "Head of Team",
       image:
           "https://www.pngitem.com/pimgs/m/4-42408_vector-art-design-men-fashion-vector-art-illustration.png",
       certificateNames: ['Certificate 1'],
@@ -26,7 +26,7 @@ class CrewController extends GetxController {
       firstName: "Berfin",
       lastName: "Terzi",
       Nationality: "TR",
-      jobTitle: "Manager",
+      jobTitle: 'Manager',
       image:
           "https://mir-s3-cdn-cf.behance.net/project_modules/max_1200/59318f68178249.5b540076b3889.png",
       certificateNames: [
@@ -49,7 +49,7 @@ class CrewController extends GetxController {
       firstName: "Tunca",
       lastName: "Ersoy",
       Nationality: "TR",
-      jobTitle: "Worker",
+      jobTitle: 'Worker',
       image:
           "https://www.pngitem.com/pimgs/m/4-42408_vector-art-design-men-fashion-vector-art-illustration.png",
       certificateNames: ['Certificate 1'],
@@ -58,7 +58,7 @@ class CrewController extends GetxController {
       firstName: "Saleemi",
       lastName: "Rashwani",
       Nationality: "KSA",
-      jobTitle: "Medical Purser",
+      jobTitle: 'Medical Purser',
       image:
           "https://www.pngitem.com/pimgs/m/4-42408_vector-art-design-men-fashion-vector-art-illustration.png",
       certificateNames: [
@@ -77,7 +77,7 @@ class CrewController extends GetxController {
       firstName: "Gerasim",
       lastName: "Kiselev",
       Nationality: "RU",
-      jobTitle: "Cook",
+      jobTitle: 'Cook',
       image:
           "https://mir-s3-cdn-cf.behance.net/project_modules/max_1200/59318f68178249.5b540076b3889.png",
       certificateNames: ['Certificate 1'],
@@ -86,7 +86,7 @@ class CrewController extends GetxController {
       firstName: "Deniz",
       lastName: "Derya",
       Nationality: "TR",
-      jobTitle: "Chief Engineer",
+      jobTitle: 'Chief Engineer',
       image:
           "https://mir-s3-cdn-cf.behance.net/project_modules/max_1200/59318f68178249.5b540076b3889.png",
       certificateNames: ['Certificate 1'],
@@ -95,7 +95,7 @@ class CrewController extends GetxController {
       firstName: "Ulu",
       lastName: "Dura",
       Nationality: "TR",
-      jobTitle: "2nd Engineer",
+      jobTitle: '2nd Engineer',
       image:
           "https://www.pngitem.com/pimgs/m/4-42408_vector-art-design-men-fashion-vector-art-illustration.png",
       certificateNames: ['Certificate 1'],
@@ -104,7 +104,7 @@ class CrewController extends GetxController {
       firstName: "Mohammad",
       lastName: "Samer",
       Nationality: "KSA",
-      jobTitle: "Watch Leader",
+      jobTitle: 'Watch Leader',
       image:
           "https://www.pngitem.com/pimgs/m/4-42408_vector-art-design-men-fashion-vector-art-illustration.png",
       certificateNames: ['Certificate 1', 'Certificate 2', 'Certificate 3'],
@@ -113,7 +113,7 @@ class CrewController extends GetxController {
       firstName: "Yusuf",
       lastName: "Durmaz",
       Nationality: "TR",
-      jobTitle: "Worker",
+      jobTitle: 'Worker',
       image:
           "https://www.pngitem.com/pimgs/m/4-42408_vector-art-design-men-fashion-vector-art-illustration.png",
       certificateNames: ['Certificate 1'],
@@ -122,7 +122,7 @@ class CrewController extends GetxController {
       firstName: "Batuhan",
       lastName: "Taş",
       Nationality: "TR",
-      jobTitle: "Worker",
+      jobTitle: 'Worker',
       image:
           "https://www.pngitem.com/pimgs/m/4-42408_vector-art-design-men-fashion-vector-art-illustration.png",
       certificateNames: ['Certificate 1'],
@@ -143,6 +143,11 @@ class CrewController extends GetxController {
     crewList.add(cMember10);
     crewList.add(cMember11);
 
+    update();
+  }
+
+  deleteList() {
+    crewList.clear();
     update();
   }
 }

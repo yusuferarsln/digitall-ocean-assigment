@@ -1,11 +1,13 @@
 import 'package:digital_ocean_app/localization/controller/languageController.dart';
-import 'package:digital_ocean_app/ui/marine_location.dart';
+import 'package:digital_ocean_app/ui/controller/crew_controller.dart';
+import 'package:digital_ocean_app/ui/view/marine_location.dart';
 import 'package:digital_ocean_app/ui/pallette/colorpallete.dart';
-import 'package:digital_ocean_app/ui/view/home.dart';
+import 'package:digital_ocean_app/ui/view/crew.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
 LanguageController languageController = Get.put(LanguageController());
+CrewController crewController = Get.put(CrewController());
 
 Widget drawerWidget(BuildContext context) => Drawer(
       child: ListView(
@@ -27,28 +29,28 @@ Widget drawerWidget(BuildContext context) => Drawer(
           ),
           ListTile(
             title: Text(
-              'Contracts'.tr,
+              'contracts'.tr,
               style: TextStyle(fontSize: 22, fontWeight: FontWeight.w300),
             ),
             onTap: () {},
           ),
           ListTile(
             title: Text(
-              'CRM'.tr,
+              'crm'.tr,
               style: TextStyle(fontSize: 22, fontWeight: FontWeight.w300),
             ),
             onTap: () {},
           ),
           ListTile(
             title: Text(
-              'Vessel'.tr,
+              'vessel'.tr,
               style: TextStyle(fontSize: 22, fontWeight: FontWeight.w300),
             ),
             onTap: () {},
           ),
           ListTile(
             title: Text(
-              'Crew'.tr,
+              'crew'.tr,
               style: TextStyle(fontSize: 22, fontWeight: FontWeight.w300),
             ),
             onTap: () {
@@ -57,8 +59,9 @@ Widget drawerWidget(BuildContext context) => Drawer(
           ),
           ListTile(
             title: Text(
-              'Marine'.tr,
-              style: TextStyle(fontSize: 22, fontWeight: FontWeight.w300),
+              'marine'.tr,
+              style: TextStyle(
+                  fontSize: 22, fontWeight: FontWeight.w300, color: Colors.red),
             ),
             onTap: () {
               Get.to(MarineLocation());
@@ -66,7 +69,7 @@ Widget drawerWidget(BuildContext context) => Drawer(
           ),
           ListTile(
             title: Text(
-              'Settings'.tr,
+              'settings'.tr,
               style: TextStyle(fontSize: 22, fontWeight: FontWeight.w500),
             ),
             onTap: () {
@@ -82,7 +85,7 @@ buildLanguageDialog(BuildContext context) {
       context: context,
       builder: (builder) {
         return AlertDialog(
-          title: Text('Choose Your Language'),
+          title: Text('changeLang'.tr),
           content: Container(
             width: double.maxFinite,
             child: ListView.separated(
@@ -110,6 +113,7 @@ buildLanguageDialog(BuildContext context) {
 }
 
 void ChangeL(String localization, context) {
+  crewController.deleteList();
   localization == "English"
       ? languageController.changeLanguage('en', 'Us')
       : languageController.changeLanguage('tr', 'Tr');
@@ -119,6 +123,7 @@ void ChangeL(String localization, context) {
       : Get.snackbar('Başarılı', 'Uygulama dili artık Türkçe',
           snackPosition: SnackPosition.BOTTOM);
   Navigator.pop(context);
+  crewController.buildList();
 }
 
 final List locale = [

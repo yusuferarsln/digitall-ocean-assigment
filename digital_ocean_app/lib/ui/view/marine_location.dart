@@ -2,6 +2,7 @@ import 'dart:async';
 
 import 'package:digital_ocean_app/ui/pallette/colorpallete.dart';
 import 'package:flutter/material.dart';
+import 'package:get/get_utils/src/extensions/internacionalization.dart';
 import 'package:google_maps_flutter/google_maps_flutter.dart';
 
 class MarineLocation extends StatefulWidget {
@@ -30,8 +31,6 @@ class MarineLocationState extends State<MarineLocation> {
   Widget build(BuildContext context) {
     return new Scaffold(
       floatingActionButtonLocation: FloatingActionButtonLocation.centerFloat,
-      appBar: AppBar(
-          backgroundColor: palleteLightBlue, title: Text('Marine Location')),
       body: GoogleMap(
         mapType: MapType.normal,
         markers: {_angolaMarker},
@@ -42,7 +41,7 @@ class MarineLocationState extends State<MarineLocation> {
       ),
       floatingActionButton: FloatingActionButton.extended(
         onPressed: _backtoAngola,
-        label: Text('Back to Luanda,Angola'),
+        label: Text('backto'.tr + ' ' + 'Angola'),
         icon: Icon(Icons.directions_boat),
       ),
     );
